@@ -1,0 +1,21 @@
+/* ============================================
+   Home Page Styles
+   ============================================ */
+
+.home {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+.home__content {
+  position: relative;
+  margin-top: -80px; /* Overlap with banner bottom */
+  z-index: var(--z-base);
+  padding-bottom: var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+  .home__content {
+    margin-top: -40px;
+  }
+}
