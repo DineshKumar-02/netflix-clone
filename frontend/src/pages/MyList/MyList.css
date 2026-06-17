@@ -1,0 +1,247 @@
+/* ============================================
+   My List Page Styles
+   ============================================ */
+
+.my-list {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+.my-list__container.container {
+  padding-top: calc(var(--navbar-height) + var(--spacing-2xl)) !important;
+  padding-bottom: var(--spacing-2xl) !important;
+  min-height: 70vh;
+}
+
+/* ----- Header ----- */
+.my-list__header {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.my-list__title {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  margin-bottom: var(--spacing-xs);
+}
+
+.my-list__count {
+  font-size: var(--font-size-md);
+  color: var(--color-gray-300);
+}
+
+/* ----- Grid ----- */
+.my-list__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+/* ----- Skeleton Loading ----- */
+.my-list__skeleton {
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    90deg,
+    var(--color-gray-700) 25%,
+    var(--color-gray-600) 50%,
+    var(--color-gray-700) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ----- Card ----- */
+.my-list__card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-bg-card);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.my-list__card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.my-list__card-link {
+  display: block;
+}
+
+/* Card Poster */
+.my-list__card-poster {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background: var(--color-gray-700);
+}
+
+.my-list__card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.my-list__card:hover .my-list__card-img {
+  transform: scale(1.05);
+}
+
+.my-list__card-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  background: var(--color-gray-700);
+}
+
+/* Play Overlay */
+.my-list__card-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.my-list__card:hover .my-list__card-overlay {
+  opacity: 1;
+}
+
+.my-list__card-play {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-full);
+  font-size: 1.2rem;
+  color: var(--color-bg);
+  transition: transform var(--transition-fast);
+}
+
+.my-list__card:hover .my-list__card-play {
+  transform: scale(1.1);
+}
+
+/* Card Info */
+.my-list__card-info {
+  padding: var(--spacing-md);
+}
+
+.my-list__card-title {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: var(--spacing-xs);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color var(--transition-fast);
+}
+
+.my-list__card-title:hover {
+  color: var(--color-gray-100);
+}
+
+.my-list__card-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.my-list__card-rating {
+  font-size: var(--font-size-xs);
+  color: #46d369;
+  font-weight: 600;
+}
+
+.my-list__card-year {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-300);
+}
+
+/* Remove button */
+.my-list__remove-btn {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-400);
+  padding: 4px 0;
+  transition: color var(--transition-fast);
+}
+
+.my-list__remove-btn:hover {
+  color: var(--color-red);
+}
+
+/* ----- Empty State ----- */
+.my-list__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 40vh;
+  gap: var(--spacing-md);
+}
+
+.my-list__empty-icon {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.my-list__empty h2 {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-gray-100);
+}
+
+.my-list__empty p {
+  font-size: var(--font-size-md);
+  color: var(--color-gray-300);
+  max-width: 400px;
+}
+
+.my-list__browse-btn {
+  display: inline-flex;
+  padding: var(--spacing-md) var(--spacing-2xl);
+  background: var(--color-red);
+  color: var(--color-white);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  border-radius: var(--radius-lg);
+  margin-top: var(--spacing-md);
+  transition: all var(--transition-normal);
+}
+
+.my-list__browse-btn:hover {
+  background: var(--color-red-hover);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-glow);
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 768px) {
+  .my-list__grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .my-list__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+  }
+
+  .my-list__title {
+    font-size: var(--font-size-2xl);
+  }
+}
