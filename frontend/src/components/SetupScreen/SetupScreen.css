@@ -1,0 +1,297 @@
+/* ============================================
+   Setup Screen Styles
+   ============================================ */
+
+.setup {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.setup__background {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    #0a0a0a 0%,
+    #1a0000 25%,
+    #0d0d0d 50%,
+    #1a0505 75%,
+    #0a0a0a 100%
+  );
+  z-index: -1;
+}
+
+.setup__background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(229, 9, 20, 0.06) 0%,
+    transparent 60%
+  );
+}
+
+.setup__container {
+  width: 100%;
+  max-width: 560px;
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Logo */
+.setup__logo {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.setup__logo-text {
+  font-size: var(--font-size-2xl);
+  font-weight: 900;
+  color: var(--color-red);
+  letter-spacing: 4px;
+}
+
+/* Card */
+.setup__card {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.setup__title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  text-align: center;
+}
+
+.setup__subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-300);
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  line-height: 1.6;
+}
+
+/* Step Indicator */
+.setup__steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.setup__step {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-400);
+  transition: color var(--transition-normal);
+}
+
+.setup__step--active {
+  color: var(--color-white);
+}
+
+.setup__step-num {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: var(--color-gray-600);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  transition: all var(--transition-normal);
+}
+
+.setup__step--active .setup__step-num {
+  background: var(--color-red);
+  color: var(--color-white);
+}
+
+.setup__step-line {
+  width: 40px;
+  height: 2px;
+  background: var(--color-gray-600);
+  border-radius: 1px;
+}
+
+/* Step Content */
+.setup__step-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.setup__instruction {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.setup__instruction h3 {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.setup__instruction p {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-200);
+  line-height: 1.6;
+}
+
+/* Buttons */
+.setup__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+  text-align: center;
+  min-height: 48px;
+}
+
+.setup__btn--primary {
+  background: var(--color-red);
+  color: var(--color-white);
+}
+
+.setup__btn--primary:hover:not(:disabled) {
+  background: var(--color-red-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-glow);
+}
+
+.setup__btn--primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.setup__btn--secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-gray-100);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.setup__btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.setup__btn--ghost {
+  background: transparent;
+  color: var(--color-gray-300);
+  padding: var(--spacing-sm);
+}
+
+.setup__btn--ghost:hover {
+  color: var(--color-white);
+}
+
+.setup__nav-btns {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.setup__nav-btns .setup__btn {
+  flex: 1;
+}
+
+/* Form */
+.setup__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.setup__input {
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--color-gray-600);
+  border: 1px solid var(--color-gray-500);
+  border-radius: var(--radius-md);
+  color: var(--color-white);
+  font-size: var(--font-size-md);
+  font-family: monospace;
+  letter-spacing: 0.5px;
+  transition: border-color var(--transition-fast);
+}
+
+.setup__input::placeholder {
+  color: var(--color-gray-400);
+  font-family: var(--font-family);
+}
+
+.setup__input:focus {
+  border-color: var(--color-red);
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.15);
+}
+
+.setup__error {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: rgba(229, 9, 20, 0.12);
+  border: 1px solid rgba(229, 9, 20, 0.25);
+  border-radius: var(--radius-sm);
+  color: #f5a3a3;
+  font-size: var(--font-size-sm);
+  text-align: center;
+}
+
+.setup__spinner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--color-white);
+  border-radius: var(--radius-full);
+  animation: loaderSpin 0.8s linear infinite;
+}
+
+.setup__footer-note {
+  margin-top: var(--spacing-xl);
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-400);
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .setup__card {
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+  }
+
+  .setup__steps {
+    gap: var(--spacing-xs);
+  }
+
+  .setup__step span:not(.setup__step-num) {
+    display: none;
+  }
+
+  .setup__step-line {
+    width: 30px;
+  }
+}
