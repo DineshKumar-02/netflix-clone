@@ -1,0 +1,146 @@
+/* ============================================
+   MovieRow Styles
+   ============================================
+   Horizontal scrolling row with arrow navigation.
+   ============================================ */
+
+.movie-row {
+  padding: var(--spacing-lg) 0;
+  position: relative;
+}
+
+.movie-row__title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-white);
+  padding: 0 var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+  position: relative;
+}
+
+.movie-row__title::before {
+  content: '';
+  position: absolute;
+  left: var(--spacing-xl);
+  bottom: -4px;
+  width: 40px;
+  height: 3px;
+  background: var(--color-red);
+  border-radius: 2px;
+}
+
+/* Container for cards + arrows */
+.movie-row__container {
+  position: relative;
+}
+
+/* Scrollable cards track */
+.movie-row__cards {
+  display: flex;
+  gap: var(--spacing-md);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: var(--spacing-md) var(--spacing-xl);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.movie-row__cards::-webkit-scrollbar {
+  display: none;
+}
+
+/* ----- Scroll Arrows ----- */
+.movie-row__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--color-white);
+  z-index: var(--z-base);
+  transition: all var(--transition-fast);
+  opacity: 0;
+}
+
+.movie-row__container:hover .movie-row__arrow {
+  opacity: 1;
+}
+
+.movie-row__arrow--left {
+  left: 0;
+  background: linear-gradient(to right, rgba(20, 20, 20, 0.9), transparent);
+  padding-right: var(--spacing-sm);
+}
+
+.movie-row__arrow--right {
+  right: 0;
+  background: linear-gradient(to left, rgba(20, 20, 20, 0.9), transparent);
+  padding-left: var(--spacing-sm);
+}
+
+.movie-row__arrow:hover {
+  color: var(--color-red);
+  font-size: 3rem;
+}
+
+/* ----- Skeleton Loading ----- */
+.movie-row__loading {
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-xl);
+  overflow: hidden;
+}
+
+.movie-row__skeleton {
+  flex-shrink: 0;
+  width: 180px;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    90deg,
+    var(--color-gray-700) 25%,
+    var(--color-gray-600) 50%,
+    var(--color-gray-700) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 768px) {
+  .movie-row__title {
+    font-size: var(--font-size-lg);
+    padding: 0 var(--spacing-md);
+  }
+
+  .movie-row__title::before {
+    left: var(--spacing-md);
+  }
+
+  .movie-row__cards {
+    padding: var(--spacing-sm) var(--spacing-md);
+    gap: var(--spacing-sm);
+  }
+
+  .movie-row__arrow {
+    display: none;
+  }
+
+  .movie-row__loading {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .movie-row__skeleton {
+    width: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-row__skeleton {
+    width: 120px;
+  }
+}
