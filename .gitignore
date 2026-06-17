@@ -1,0 +1,40 @@
+# Root Git Ignore Configurations
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node modules & builds
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Environment variables & private keys
+.env
+.env.*
+
+# Editor directories and files
+.vscode/
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Nested directories (safeguard)
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.*
+frontend/.env.local
+backend/node_modules/
+backend/.env
+backend/.env.local
